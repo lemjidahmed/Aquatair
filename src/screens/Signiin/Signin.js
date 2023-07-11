@@ -9,8 +9,9 @@ const Signin = () => {
     const {height} = useWindowDimensions();
     return(
         <View style={styles.root}>
-          
+          <Text style={styles.text}>Login</Text>
           <Image source={logo} style={[styles.logo, {height: height * 0.3}]} resizeMode="contain"/>
+          
           <Custominput placeholder={"Username"} value={username} setValue={setUsername} />
           <Custominput placeholder={"Password"} value={password} setValue={setPassword} secureTextEntry={true}/>
         </View>
@@ -21,13 +22,17 @@ const Signin = () => {
 const styles = StyleSheet.create({
     root: {
         alignItems: 'center',
-         
+        
     },
     logo: {
         width: 90,
         height: 90,
         
     },
+    text: {
+        color: '#4180C8',
+    }
+
 });
 
 export default Signin;
