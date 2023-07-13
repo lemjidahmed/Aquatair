@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Signin from "./src/screens/Signiin/Signin";
+import Home from "./src/screens/Home/Home";
 import Profil from "./src/screens/profile/profil";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,7 +15,7 @@ export default function App() {
         inactiveColor="#3e2465"
       >
         <Tab.Screen name="Profil" component={Profil} />
-        <Tab.Screen name="Signin" component={Signin} />
+        <Tab.Screen name="Home" component={Home} />
       </Tab.Navigator>
     </NavigationContainer>
   );
