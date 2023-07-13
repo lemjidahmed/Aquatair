@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import Header from "../../components/Header/Header";
-
-
+import { MaterialIcons } from "@expo/vector-icons";
 export default function Profil({ navigation }) {
   return (
     <View style={styles.container}>
@@ -21,7 +20,7 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="edit" size={24} color="black" />
+              <MaterialIcons name="edit" size={24} color="#3B6EBC" />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Modifier profile</Text>
@@ -36,7 +35,11 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="bell" size={24} color="black" />
+              <MaterialIcons
+                name="notifications-active"
+                size={24}
+                color="#3B6EBC"
+              />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Notifications</Text>
@@ -54,7 +57,7 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="tool" size={24} color="black" />
+              <MaterialIcons name="water-damage" size={24} color="#3B6EBC" />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Mes Aquatairs</Text>
@@ -69,7 +72,7 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="help-circle" size={24} color="black" />
+              <MaterialIcons name="help" size={24} color="#3B6EBC" />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Aide</Text>
@@ -87,7 +90,7 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="flag" size={24} color="black" />
+              <MaterialIcons name="flag" size={24} color="#3B6EBC" />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Réclamation</Text>
@@ -105,7 +108,7 @@ export default function Profil({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <Feather name="log-out" size={24} color="black" />
+              <MaterialIcons name="logout" size={24} color="#3B6EBC" />
             </View>
             <View style={{ flex: 4 }}>
               <Text style={{ fontSize: 24 }}>Déconnexion</Text>
@@ -133,7 +136,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     justifyContent: "space-around",
-    borderRadius: "6.25%",
+    borderRadius: 6.25,
     backgroundColor: "lightgray",
     width: "95%",
     height: "95%",

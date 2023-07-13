@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View, Image } from "react-native";
-
+import { FontAwesome5 } from "@expo/vector-icons";
 let user = { name: "Altair", aquacoin: 10 };
 
-export default function Header() {
+const Header = () => {
   return (
     <View style={{ flex: 2 }}>
       <View style={{ flex: 1 }}>
@@ -17,7 +17,7 @@ export default function Header() {
               backgroundColor: "white",
               width: "90%",
               height: "50%",
-              borderRadius: "50%",
+              borderRadius: 10,
               borderColor: "gray",
 
               shadowColor: "#000",
@@ -33,7 +33,7 @@ export default function Header() {
                 alignItems: "center",
               }}
             >
-              <Feather name="user" size={24} color="black" />
+              <FontAwesome5 name="user" size={24} color="#3B6EBC" />
             </View>
             <View
               style={{
@@ -73,4 +73,6 @@ export default function Header() {
       </View>
     </View>
   );
-}
+};
+
+export default Header;
