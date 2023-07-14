@@ -1,23 +1,22 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { StyleSheet, Text, View } from "react-native";
-import Signin from "./src/screens/Signiin/Signin";
-import SignupPage from "./src/screens/SignupScreen/SignupScreen";
+import Home from "./src/screens/Home/Home";
 import Profil from "./src/screens/Profil/Profil";
-import HomeInfos from "./src/screens/HomeInfos/HomeInfos";
 
-const Stack = createNativeStackNavigator();
 
+const Tab = createMaterialBottomTabNavigator();
 const StackNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: true }}>
-      <Stack.Group>
-        <Stack.Screen name="Signin" component={Signin} />
-        <Stack.Screen name="SignupPage" component={SignupPage} />
-        <Stack.Screen name="Profil" component={Profil} />   
-        <Stack.Screen name="HomeInfos" component={HomeInfos} />
-      </Stack.Group>
-    </Stack.Navigator>
+    <Tab.Navigator
+    initialRouteName="Home"
+    activeColor="#3B6EBC"
+    inactiveColor="#3e2465"
+  >
+    <Tab.Screen name="Home" component={Home} />
+    <Tab.Screen name="Profil" component={Profil} />
+    
+  </Tab.Navigator>
   );
 };
 

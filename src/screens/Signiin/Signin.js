@@ -31,7 +31,7 @@ const Signin = () => {
     } else if (password.trim() === '') {
       setError('password');
     } else {
-      navigation.navigate("Profil");
+      navigation.navigate("Tab");
       setNomUtilisateur('');
       setPassword('');
       setError(null);

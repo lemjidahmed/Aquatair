@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 import { useNavigation } from "@react-navigation/native";
 import {
   CheckBox,
@@ -46,7 +46,9 @@ const  HomeInfos = () => {
         if (Comportementconsomm === "") {
             alert("Veuillez entrer vos comportements de consommation d'eau");
             return;
-      };}
+      }else{navigation.navigate("Signin")}
+    }
+      
   return (
     <View style={{flex:1}}>
         <Header />
@@ -80,7 +82,6 @@ const  HomeInfos = () => {
             placeholder="Nombre d’occupants"
             onChangeText={(text) => setNbreOccup(text)}
             value={NbreOccup}
-            secureTextEntry
           />
         </View>
         <View style={styles.fieldContainer}>
@@ -90,7 +91,7 @@ const  HomeInfos = () => {
             placeholder="Exemple : Jardin avec un systéme d'irrigation automatique, piscine"
             onChangeText={(text) => setEquipement(text)}
             value={Equipement}
-            secureTextEntry
+            
           />
         </View>
         <View style={styles.fieldContainer}>
@@ -100,7 +101,7 @@ const  HomeInfos = () => {
             placeholder="Exemple : lave-linge, lave-vaisselle"
             onChangeText={(text) => setAppareilMenagers(text)}
             value={AppareilsMenagers}
-            secureTextEntry
+            
           />
         </View>
         <View style={styles.fieldContainer}>

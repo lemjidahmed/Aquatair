@@ -1,26 +1,27 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Home from "./src/screens/Home/Home";
-import Profil from "./src/screens/profile/profil";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import SignupPage from './src/screens/SignupScreen/SignupScreen';
 import StackNavigator from "./StackNavigator";
-import { NavigationContainer } from "@react-navigation/native";
+import Signin from "./src/screens/Signiin/Signin";
+import SignupPage from "./src/screens/SignupScreen/SignupScreen";
+import Profil from "./src/screens/Profil/Profil";
+import HomeInfos from "./src/screens/HomeInfos/HomeInfos";
 
 
-const Tab = createMaterialBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Profil"
-        activeColor="#3B6EBC"
-        inactiveColor="#3e2465"
-      >
-        <Tab.Screen name="Profil" component={Profil} />
-        <Tab.Screen name="Home" component={Home} />
-      </Tab.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Group>
+        <Stack.Screen name="Signin" component={Signin} />
+        <Stack.Screen name="SignupPage" component={SignupPage} />
+        <Stack.Screen name="HomeInfos" component={HomeInfos} />
+        <Stack.Screen name="Tab" component={StackNavigator}/>
+      </Stack.Group>
+      
+    </Stack.Navigator>
     </NavigationContainer>
   );
 }
