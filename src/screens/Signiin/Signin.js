@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import { CheckBox,View, TextInput, Button, Image, Text, StyleSheet, Linking } from 'react-native';
-
+import React, { useState} from 'react';
+import { CheckBox,View, TextInput, Button, Image, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 const Signin = () => {
+  
+  const [error, setError] = useState(false);
+
   const [NomUtilisateur, setNomUtilisateur] = useState('');
   const [password, setPassword] = useState('');
   const [acceptedPrivacyPolicy, setAcceptedPrivacyPolicy] = useState(false);
   const [isSelected, setSelection] = useState(false);
-
-  const handleSignup = () => {
+  const [isLoginClicked, setIsLoginClicked] = useState(false);
+  const navigation = useNavigation();
+  
+  const handleSignin = () => {
     // Effectuez ici votre logique d'inscription
     console.log('Email:', email);
     console.log('Password:', password);
@@ -18,6 +23,23 @@ const Signin = () => {
 
   };
 
+
+  const handleLoginClick = () => {
+    setIsLoginClicked(true);
+    if (NomUtilisateur.trim() === '') {
+      setError('NomUtilisateur');
+    } else if (password.trim() === '') {
+      setError('password');
+    } else {
+      navigation.navigate("Profil");
+      setNomUtilisateur('');
+      setPassword('');
+      setError(null);
+      setIsLoginClicked(false);
+      // Perform login logic here
+    }
+  };
+  
   return (
     <View style={styles.container}>
     <Text style={styles.title}>Login</Text>
@@ -29,9 +51,14 @@ const Signin = () => {
           <TextInput
             style={styles.input}
             placeholder="Nom d'utilisateur"
-            onChangeText={(text) => setNomUtilisateur(text)}
             value={NomUtilisateur}
+            required
+            onChangeText={text => setNomUtilisateur(text)}
+            onBlur={() => {
+               if (isLoginClicked && NomUtilisateur.trim() === '') { setError('NomUtilisateur');}
+            }}
         />
+        {error === 'NomUtilisateur' && <Text style={{ color: 'red' }}>NomUtilisateur is required!</Text>}
         </View>
         
         <View style={styles.fieldContainer}>
@@ -39,10 +66,15 @@ const Signin = () => {
         <TextInput
           style={styles.input}
           placeholder="Mot de passe"
-          onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry
+          required
+          onChangeText={text => setPassword(text)}
+          onBlur={() => {
+            if (isLoginClicked && password.trim() === '') {setError('password');}
+           }}
         />
+        {error === 'password' && <Text style={{ color: 'red' }}>Password is required!</Text>}
         </View>
 
 
@@ -70,14 +102,20 @@ const Signin = () => {
         <Button  
        
         title={"Login"} 
-        onPress={() => {}} />
+        onPress={() => {
+          handleLoginClick()
+        }}/>
         </View>
 
         <br /><br /><br /><br />
-        <Text style={{color: 'black'}}
-      onPress={() => Linking.openURL('')}>
-      Vous n’avez pas de compte? Inscrivez-vous ...
-       </Text>
+        <View style={styles.signupContainer}>
+        <TouchableOpacity
+        onPress={() => navigation.navigate("SignupPage")}>
+        <Text style={{ color: 'black', textDecorationLine: 'underline'}}>
+        Vous n’avez pas de compte? Inscrivez-vous ...
+        </Text>
+       </TouchableOpacity>
+       </View>
     
 
       </View>
@@ -152,6 +190,11 @@ div: {
     flex:1,
     flexDirection: "row", 
     alignContent: "space-between",
+},
+signupContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
 },
 });
 
