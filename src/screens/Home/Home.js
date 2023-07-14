@@ -70,13 +70,10 @@ export default function Home({ navigation }) {
     legend: ["Consommation"], // optional
   };
   const chartConfig = {
-    backgroundGradientFrom: "#fff",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#3B6EBC",
-    backgroundGradientToOpacity: 0.25,
-    color: (opacity = 0.5) => `rgba(19, 51, 99, ${opacity})`,
-    strokeWidth: 1, // optional, default 3
-    barPercentage: 0.5,
+    
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    strokeWidth: 3, // optional, default 3
+    barPercentage: 1,
     useShadowColorFromDataset: false, // optional
   };
   return (
