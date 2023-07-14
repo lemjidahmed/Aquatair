@@ -81,7 +81,7 @@ export default function Home({ navigation }) {
         strokeWidth: 4, // optional
       },
     ],
-    legend: ["Consommation"], // optional
+    legend: ["Consommation", "Prediction", "Seuil"], // optional
   };
   const chartConfig = {
     backgroundGradientFrom: "#1E2923",
